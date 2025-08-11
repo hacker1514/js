@@ -1,74 +1,103 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <link rel='manifest' href='js.json'>
-                <title>NIRANJAN CREATIONS</title>
-        </head>
-<style>
-.rotate{
-        animation : spin 2s linear infinite;
-}
-@keyframes spin{
-        0%{transform:rotateY(0deg);
+<head>
+    <link rel='manifest' href='js.json'>
+    <title>NIRANJAN CREATIONS</title>
+    <style>
+        .rotate {
+            animation: spin 2s linear infinite;
         }
-        100%{
-                transform:rotateY(360deg);
+        @keyframes spin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
         }
-}
-</style>
-        <body style="color:navy;background:linear-gradient(to left,lightpink,lightblue);">
-                <marquee style="background-color:teal;color:lime;border:solid red;font-size:35px;" behaviour="scroll"; scrollamount="15"; direction="right"><b>JS EDITOR BY KNI</b></marquee>
-                <center>
-                <img src="https://hacker1514.github.io/python/kni.png" style="border:solid red;border-radius:50%" class="rotate" height=100px width=100px>
-                </br>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="c()">CLEAR</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="run()">RUN</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="contact()">CONTACT</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="feedback()">FEEDBACK</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="logout()">LOGOUT</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="save()">SAVE</button>
-<button style="color:white;background-color:blue;font-size:35px;border:solid lime"onclick="install()">INSTALL</button>
-<audio src="https://hacker1514.github.io/creations/click.mp3" id="m"></audio>
-<h1>WORK HERE ON JS</h1>
-<textarea style="color:cyan;background-color:black;font-size:20px;height:300px;width:900px;border:solid cyan" id="js" autocapitalize=off>START FROM HERE !</textarea>
-<h1 style="color:red;">OUTPUT : </h1>
-                </center>
-<div id="output" style="color:lime;background-color:black;font-size:20px;"></div>
-<script>
-        let p;                                                                                                         window.addEventListener('beforeinstallprompt',e=>{                                                                     e.preventDefault();                                                                                            p=e;                                                                                                   });                                                                                                            function install(){                                                                                                    music.play();                                                                                                  if(p){                                                                                                                 p.prompt();                                                                                            }                                                                                                      }                                                                                                              if('serviceWorker' in navigator){                                                                              navigator.serviceWorker.register('js.js');                                                                 }
-        let music=document.getElementById("m");
-        function c(){
-                music.play();
-                location.reload();
+    </style>
+</head>
+<body style="color:navy;background:linear-gradient(to left,lightpink,lightblue);">
+    <marquee style="background-color:teal;color:lime;border:solid red;font-size:35px;" behavior="scroll" scrollamount="15" direction="right">
+        <b>JS EDITOR BY KNI</b>
+    </marquee>
+    <center>
+        <img src="https://hacker1514.github.io/python/kni.png" style="border:solid red;border-radius:50%" class="rotate" height="100" width="100">
+        <br>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="c()">CLEAR</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="run()">RUN</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="contact()">CONTACT</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="feedback()">FEEDBACK</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="logout()">LOGOUT</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="save()">SAVE</button>
+        <button style="color:white;background-color:blue;font-size:35px;border:solid lime" onclick="install()">INSTALL</button>
+        <audio src="https://hacker1514.github.io/creations/click.mp3" id="m"></audio>
+        <h1>WORK HERE ON JS</h1>
+        <textarea style="color:cyan;background-color:black;font-size:20px;height:300px;width:900px;border:solid cyan" id="js" autocapitalize="off">START FROM HERE !</textarea>
+        <h1 style="color:red;">OUTPUT : </h1>
+    </center>
+    <div id="output" style="color:lime;background-color:black;font-size:20px;padding:10px;"></div>
+
+    <script>
+        let p;
+        window.addEventListener('beforeinstallprompt', e => {
+            e.preventDefault();
+            p = e;
+        });
+        function install() {
+            music.play();
+            if (p) {
+                p.prompt();
+            }
         }
-        function contact(){
-                music.play();
-                window.open("https://hacker1514.github.io./python/contact.html","_self");
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('js.js');
         }
-        function feedback(){
-                music.play();
-                window.open("https://hacker1514.github.io./python/feedback.html","_self");
+
+        let music = document.getElementById("m");
+
+        function c() {
+            music.play();
+            location.reload();
         }
-        function logout(){
-                music.play();
-                window.open("https://hacker1514.github.io./css/login.html","_self");
+        function contact() {
+            music.play();
+            window.open("https://hacker1514.github.io./python/contact.html", "_self");
         }
-        function run(){
-                music.play();
-                let code=document.getElementById("js").value;
-                let result=document.getElementById("output");
-                result.innerHTML=code;
+        function feedback() {
+            music.play();
+            window.open("https://hacker1514.github.io./python/feedback.html", "_self");
         }
-        function save(){
-                music.play();
-                let text=document.getElementById("js").value;
-                let blob=new Blob([text],{type:"text/js"});
-                let link=document.createElement("a");
-                link.href=URL.createObjectURL(blob);
-                let file=prompt("Enter file name:\n");
-                link.download=file+'.js';
+        function logout() {
+            music.play();
+            window.open("https://hacker1514.github.io./css/login.html", "_self");
+        }
+        function run() {
+            music.play();
+            let code = document.getElementById("js").value;
+            let outputDiv = document.getElementById("output");
+
+            try {
+                outputDiv.innerHTML = "";
+                let oldLog = console.log;
+                console.log = function (...args) {
+                    outputDiv.innerHTML += args.join(" ") + "<br>";
+                    oldLog.apply(console, args);
+                };
+                eval(code);
+                console.log = oldLog;
+            } catch (err) {
+                outputDiv.innerHTML = "<span style='color:red;'>" + err + "</span>";
+            }
+        }
+        function save() {
+            music.play();
+            let text = document.getElementById("js").value;
+            let blob = new Blob([text], { type: "text/javascript" });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            let file = prompt("Enter file name:\n");
+            if (file) {
+                link.download = file + '.js';
                 link.click();
-                }
-</script>
-        </body>
+            }
+        }
+    </script>
+</body>
 </html>
