@@ -51,10 +51,12 @@
         }
 
         let music = document.getElementById("m");
+        let oldLog = console.log; // store original log once
 
         function c() {
             music.play();
-            location.reload();
+            document.getElementById("output").innerHTML = ""; // clear custom output
+            console.clear(); // also clears browser console
         }
         function contact() {
             music.play();
@@ -66,25 +68,33 @@
         }
         function logout() {
             music.play();
-            window.open("https://hacker1514.github.io./css/login.html", "_self");
+            window.open("https://hacker1514.github.io./js/login.html", "_self");
         }
         function run() {
             music.play();
             let code = document.getElementById("js").value;
             let outputDiv = document.getElementById("output");
 
-            try {
+            outputDiv.innerHTML = ""; // clear output area before running
+
+            // override console.log only for this run
+            console.log = function (...args) {
+                outputDiv.innerHTML += args.join(" ") + "<br>";
+                oldLog.apply(console, args);
+            };
+
+            // override console.clear to clear output div
+            console.clear = function () {
                 outputDiv.innerHTML = "";
-                let oldLog = console.log;
-                console.log = function (...args) {
-                    outputDiv.innerHTML += args.join(" ") + "<br>";
-                    oldLog.apply(console, args);
-                };
+            };
+
+            try {
                 eval(code);
-                console.log = oldLog;
             } catch (err) {
                 outputDiv.innerHTML = "<span style='color:red;'>" + err + "</span>";
             }
+
+            console.log = oldLog; // restore original log
         }
         function save() {
             music.play();
